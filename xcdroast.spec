@@ -4,7 +4,7 @@ Summary(es):	Herramienta gráfica para crear CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
-Version:	%{ver}alpha12
+Version:	%{ver}alpha13
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
