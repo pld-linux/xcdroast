@@ -43,6 +43,7 @@ oraz IDE itp.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} PREFIX="%{_prefix}" DESTDIR=$RPM_BUILD_ROOT install
 
 gzip -9nf CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO \
@@ -55,12 +56,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
+%dir {_libdir}/%{name}-%{ver}
+dir {_libdir}/%{name}-%{ver}/bin/
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/cddbtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/wavplay
 %attr(2755,root,cdwrite) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
+%dir %{_libdir}/%{name}-%{ver}/lang
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/lang/*.sh
 %{_libdir}/%{name}-%{ver}/lang/*.def
-%{_libdir}/%{name}-%{ver}/icons/*
-%{_libdir}/%{name}-%{ver}/sound/*
+%{_libdir}/%{name}-%{ver}/icons
+%{_libdir}/%{name}-%{ver}/sound
