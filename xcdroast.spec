@@ -17,9 +17,6 @@ BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	glib-devel
 BuildRequires:	gtk+-devel
-Requires(pre):	/usr/bin/getgid
-Requires(pre):	/usr/sbin/groupadd
-Requires(postun):	/usr/sbin/groupdel
 Requires:	cdrtools >= 1.11a40
 Requires:	cdrtools-cdda2wav >= 1.11a40
 Requires:	cdrtools-mkisofs >= 1.11a40
@@ -79,17 +76,6 @@ install extra/%{name}.desktop $RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pre
-if [ -n "`getgid cdwrite`" ]; then
-	if [ "`getgid cdwrite`" != "27" ]; then
-		echo "Error: group cdwrite doesn't have gid=27. Correct this before installing xcdroast." 1>&2
-		exit 1
-	fi
-else
-	echo "Creating group cdwrite GID=27."
-	/usr/sbin/groupadd -g 27 -r -f cdwrite
-fi
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog README doc/*
@@ -100,7 +86,7 @@ fi
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/wavplay
-%attr(2755,root,cdwrite) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
 %{_libdir}/%{name}-%{ver}/icons
 %{_libdir}/%{name}-%{ver}/sound
 %{_applnkdir}/Utilities/CD-RW/%{name}.desktop
