@@ -12,6 +12,7 @@ Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-use_cdwrite_group.patch
+Patch3:		%{name}-orto.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
@@ -62,6 +63,7 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %configure \

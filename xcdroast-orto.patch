@@ -1,0 +1,12 @@
+diff -uNr xcdroast-0.98alpha11.org/po/pl.po xcdroast-0.98alpha11/po/pl.po
+--- xcdroast-0.98alpha11.org/po/pl.po	Mon Nov 25 21:19:07 2002
++++ xcdroast-0.98alpha11/po/pl.po	Tue Dec  3 15:02:29 2002
+@@ -834,7 +834,7 @@
+ 
+ #: src/create.c:2599 src/create.c:2667 src/setup.c:1623
+ msgid "None"
+-msgstr "Rzadne"
++msgstr "¯adne"
+ 
+ #: src/create.c:2604
+ msgid "Deselects all displayed tracks."
