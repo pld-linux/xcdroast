@@ -6,8 +6,6 @@ Version:	%{ver}alpha9
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www.fh-muenchen.de/home/ze/rz/services/projects/xcdroast/src/%{name}-%{version}.tar.gz
 URL:		http://www.xcdroast.org/
 Requires:	cdrtools >= 1.10
