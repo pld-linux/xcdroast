@@ -5,13 +5,14 @@ Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha10
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-home_etc.patch
+Patch1:		%{name}-use_cdwrite_group.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
@@ -60,7 +61,7 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %prep
 %setup -q
 %patch0 -p1
-
+%patch1 -p1
 %build
 %{__make} \
     PREFIX="%{_prefix}" \
@@ -91,11 +92,6 @@ else
 	/usr/sbin/groupadd -g 27 -r -f cdwrite
 fi
 
-%postun
-if [ "$1" = "0" ]; then
-	/usr/sbin/groupdel cdwrite 2>/dev/null
-fi
-		
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO README.atapi
