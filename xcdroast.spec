@@ -15,6 +15,8 @@ Patch1:		%{name}-desktop.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+2-devel
+BuildRequires:	pkgconfig
+BuildRequires:	pcre-devel
 Requires:	cdrtools >= 2.01a18
 Requires:	cdrtools-cdda2wav >= 2.01a18
 Requires:	cdrtools-mkisofs >= 2.01a18
