@@ -1,0 +1,12 @@
+diff -urN aaa/xcdroast-0.98alpha14/src/io.c xcdroast-0.98alpha14/src/io.c
+--- aaa/xcdroast-0.98alpha14/src/io.c	2003-05-29 15:14:42.000000000 +0200
++++ xcdroast-0.98alpha14/src/io.c	2003-08-27 17:58:22.000000000 +0200
+@@ -6605,7 +6605,7 @@
+ 				read_output_ctrl = 4;
+ 			} 
+ 			/* check Medium error/buffer underrun */
+-			if (strncmp(tmp2,"Input/output error",18)) {
++			if (strncmp(tmp2,"Input/output error",18) == 0) {
+ 				read_output_ctrl = 5;
+ 			}
+ 		}
