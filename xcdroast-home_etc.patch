@@ -1,6 +1,6 @@
-diff -Nur xcdroast-0.98alpha10.orig/init.c xcdroast-0.98alpha10.chng/init.c
---- xcdroast-0.98alpha10.orig/init.c	Tue Apr 23 20:55:12 2002
-+++ xcdroast-0.98alpha10.chng/init.c	Mon Jun  3 16:50:52 2002
+diff -Nur xcdroast-0.98alpha10.orig/src/init.c xcdroast-0.98alpha10.chng/src/init.c
+--- xcdroast-0.98alpha10.orig/src/init.c	Tue Apr 23 20:55:12 2002
++++ xcdroast-0.98alpha10.chng/src/init.c	Mon Jun  3 16:50:52 2002
 @@ -84,7 +84,12 @@
  	setupdata.cddb_host = g_strdup("freedb.freedb.org");
  	setupdata.cddb_port = 888;
@@ -17,7 +17,7 @@ diff -Nur xcdroast-0.98alpha10.orig/init.c xcdroast-0.98alpha10.chng/init.c
  
 @@ -719,7 +724,13 @@
  	ignorescanbus = 0;
- 	noversioncheck = 0;
+ 	no_versioncheck = 0;
  	alt_dev_string = NULL;
 -	strncpy(configdir, CONFIGDIR, MAXLINE);
 +	
@@ -27,12 +27,12 @@ diff -Nur xcdroast-0.98alpha10.orig/init.c xcdroast-0.98alpha10.chng/init.c
 +	else 
 +		g_snprintf(configdir, MAXLINE, "~/.%s", CONFIGDIR);
 +
- 	strncpy(rootconfig, ROOTCONFIG, MAXLINE);
+ 	g_snprintf(rootconfig, MAXLINE, "%s/%s", SYSCONFDIR, ROOTCONFIG);
  
  #ifdef PRE_LIBDIR 
-diff -Nur xcdroast-0.98alpha10.orig/xcdroast.h xcdroast-0.98alpha10.chng/xcdroast.h
---- xcdroast-0.98alpha10.orig/xcdroast.h	Tue Apr 23 20:55:27 2002
-+++ xcdroast-0.98alpha10.chng/xcdroast.h	Mon Jun  3 16:36:53 2002
+diff -Nur xcdroast-0.98alpha10.orig/src/xcdroast.h xcdroast-0.98alpha10.chng/src/xcdroast.h
+--- xcdroast-0.98alpha10.orig/src/xcdroast.h	Tue Apr 23 20:55:27 2002
++++ xcdroast-0.98alpha10.chng/src/xcdroast.h	Mon Jun  3 16:36:53 2002
 @@ -118,7 +118,7 @@
  /* default paths/configfile */
  #define PREFIX "/usr/local"
