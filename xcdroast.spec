@@ -4,15 +4,14 @@ Summary(es):	Herramienta gráfica para crear CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
-Version:	%{ver}alpha13
-Release:	2
+Version:	%{ver}alpha14
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5: ba5d006cc8a9d13c223ccc11c2fc088a
+# Source0-md5:	c5f3f1ab6ff6d286bd984def54ef0c54
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-use_cdwrite_group.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
@@ -59,7 +58,6 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %configure
