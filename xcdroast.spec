@@ -8,7 +8,8 @@ Version:	%{ver}alpha10
 Release:	4
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	6f9ffd30c7ba8f067c2f1bddcc83d7d8
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-home_etc.patch
