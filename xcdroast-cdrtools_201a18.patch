@@ -1,0 +1,18 @@
+diff -urN aaa/xcdroast-0.98alpha14/src/io.c xcdroast-0.98alpha14/src/io.c
+--- aaa/xcdroast-0.98alpha14/src/io.c	2003-05-29 15:14:42.000000000 +0200
++++ xcdroast-0.98alpha14/src/io.c	2003-08-01 15:52:21.000000000 +0200
+@@ -9879,9 +9879,12 @@
+ 		if (strcmp(ver,"") == 0) {
+ 			p = strstr(vline,"Cdrecord");
+ 			if (p != NULL) {
+-				p = strtok(p+9, " ");
++				p = strtok(p+7, " ");
+ 				if (p != NULL) {
+-					strcpy(ver,p);
++					p = strtok(NULL, " ");
++					if (p) {
++						strcpy(ver,p);
++					}
+ 				}
+ 			}
+ 		}
