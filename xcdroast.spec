@@ -92,5 +92,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
 %{_libdir}/%{name}-%{ver}/icons
 %{_libdir}/%{name}-%{ver}/sound
-%{_desktopdir}%{name}.desktop
+%{_desktopdir}/%{name}.desktop
 %{_mandir}/man1/*
