@@ -5,13 +5,13 @@ Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha10
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-home_etc.patch
+#Patch0:		%{name}-home_etc.patch
 URL:		http://www.xcdroast.org/
 Requires:	cdrtools >= 1.11
 Requires:	cdrtools-readcd >= 1.11
@@ -56,7 +56,7 @@ gravação no disco rígido e opção para gerar arquivo de log.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 %build
 %{__make} \
