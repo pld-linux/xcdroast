@@ -1,6 +1,6 @@
 --- xcdroast-0.98alpha14/extra/xcdroast.desktop~	2002-11-25 17:18:31.000000000 +0100
 +++ xcdroast-0.98alpha14/extra/xcdroast.desktop	2003-09-06 22:25:07.000000000 +0200
-@@ -1,6 +1,9 @@
+@@ -1,6 +1,10 @@
  [Desktop Entry]
  Name=X-CD-Roast
  Type=Application
@@ -9,5 +9,6 @@
  Comment=CD creation tool
 +Comment[pl]=Narzędzie do tworzenia płyt CD
  Icon=/usr/lib/xcdroast-0.98/icons/xcdricon.png
-+Categories=Utility;X-CD-RW
++Categories=Utility;DiscBurning;
++Encoding=UTF-8
 +# vi: encoding=utf-8
