@@ -5,6 +5,6 @@ Comment[pl]=Narzędzie do tworzenia płyt CD
 Icon=xcdroast.png
 Exec=xcdroast
 Type=Application
-Terminal=0
+Terminal=false
 Encoding=UTF-8
 # vi: encoding=utf-8
