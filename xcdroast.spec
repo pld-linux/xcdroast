@@ -13,14 +13,17 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-home_etc.patch
 URL:		http://www.xcdroast.org/
-Requires:	cdrtools >= 1.11
-Requires:	cdrtools-readcd >= 1.11
-Requires:	cdrtools-mkisofs >= 1.11
-Requires:	cdrtools-cdda2wav >= 1.11
 BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	glib-devel
 BuildRequires:	gtk+-devel
+Requires(pre):	/usr/bin/getgid
+Requires(pre):	/usr/sbin/groupadd
+Requires(postun):	/usr/sbin/groupdel
+Requires:	cdrtools >= 1.11
+Requires:	cdrtools-cdda2wav >= 1.11
+Requires:	cdrtools-mkisofs >= 1.11
+Requires:	cdrtools-readcd >= 1.11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -79,18 +82,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 if [ -n "`getgid cdwrite`" ]; then
-        if [ "`getgid cdwrite`" != "27" ]; then
-                echo "Error: group cdwrite doesn't have gid=27. Correct this before installing xcdroast." 1>&2
-            exit 1
-        fi
+	if [ "`getgid cdwrite`" != "27" ]; then
+		echo "Error: group cdwrite doesn't have gid=27. Correct this before installing xcdroast." 1>&2
+		exit 1
+	fi
 else
-        echo "Creating group cdwrite GID=27"
-        /usr/sbin/groupadd -g 27 -r -f cdwrite
+	echo "Creating group cdwrite GID=27."
+	/usr/sbin/groupadd -g 27 -r -f cdwrite
 fi
 
 %postun
 if [ "$1" = "0" ]; then
-  %{_sbindir}/groupdel cdwrite 2> /dev/null
+	/usr/sbin/groupdel cdwrite 2>/dev/null
 fi
 		
 %files
