@@ -19,6 +19,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	glib-devel
 BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
+BuildRequires:	gdk-pixbuf-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
