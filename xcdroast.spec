@@ -25,6 +25,8 @@ Requires:	cdrtools-mkisofs >= 2.01a18
 Requires:	cdrtools-readcd >= 2.01a18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_ulibdir	%{_prefix}/lib
+
 %description
 X-CD-Roast provides a GUI interface for commands like cdrecord and
 mkisofs. X-CD-Roast includes a self-explanatory X11 user interface,
@@ -76,11 +78,10 @@ cp -f /usr/share/automake/config.* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 install extra/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
@@ -93,14 +94,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README doc/*
 %attr(755,root,root) %{_bindir}/*
-%dir %{_libdir}/%{name}-%{ver}
-%dir %{_libdir}/%{name}-%{ver}/bin
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/cddbtool
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/wavplay
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
-%{_libdir}/%{name}-%{ver}/icons
-%{_libdir}/%{name}-%{ver}/sound
+%dir %{_ulibdir}/%{name}-%{ver}
+%dir %{_ulibdir}/%{name}-%{ver}/bin
+%attr(755,root,root) %{_ulibdir}/%{name}-%{ver}/bin/cddbtool
+%attr(755,root,root) %{_ulibdir}/%{name}-%{ver}/bin/rmtool
+%attr(755,root,root) %{_ulibdir}/%{name}-%{ver}/bin/vrfytool
+%attr(755,root,root) %{_ulibdir}/%{name}-%{ver}/bin/wavplay
+%attr(755,root,root) %{_ulibdir}/%{name}-%{ver}/bin/xcdrwrap
+%{_ulibdir}/%{name}-%{ver}/icons
+%{_ulibdir}/%{name}-%{ver}/sound
 %{_desktopdir}/%{name}.desktop
 %{_mandir}/man1/*
