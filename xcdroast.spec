@@ -1,8 +1,8 @@
-%define	ver	0.98
+%define		ver	0.98
 Summary:	An X Window System based tool for creating CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Name:		xcdroast
-Version:	%{ver}alpha8
+Version:	%{ver}alpha9
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
@@ -10,10 +10,10 @@ Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www.fh-muenchen.de/home/ze/rz/services/projects/xcdroast/src/%{name}-%{version}.tar.gz
 URL:		http://www.xcdroast.org/
-Requires:	cdrtools >= 1.9
-Requires:	cdrtools-readcd >= 1.9
-Requires:	cdrtools-mkisofs >= 1.9
-Requires:	cdrtools-cdda2wav >= 1.9
+Requires:	cdrtools >= 1.10
+Requires:	cdrtools-readcd >= 1.10
+Requires:	cdrtools-mkisofs >= 1.10
+Requires:	cdrtools-cdda2wav >= 1.10
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	XFree86-devel
@@ -39,12 +39,11 @@ oraz IDE itp.
 %setup -q
 
 %build
-%{__make} CC="%{__cc} %{rpmcflags}"
+%{__make} PREFIX="%{_prefix}" CC="%{__cc} %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
-ln -sf xcdrgtk $RPM_BUILD_ROOT/%{_bindir}/xcdroast
+%{__make} PREFIX="%{_prefix}" DESTDIR=$RPM_BUILD_ROOT install
 
 gzip -9nf CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO \
 	  README.atapi
@@ -56,4 +55,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/*
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/cddbtool
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/wavplay
+%attr(2755,root,cdwrite) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
+%attr(755,root,root) %{_libdir}/%{name}-%{ver}/lang/*.sh
+%{_libdir}/%{name}-%{ver}/lang/*.def
+%{_libdir}/%{name}-%{ver}/icons/*
+%{_libdir}/%{name}-%{ver}/sound/*
