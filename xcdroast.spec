@@ -4,11 +4,11 @@ Summary(es):	Herramienta gráfica para crear CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
-Version:	%{ver}alpha10
-Release:	7
+Version:	%{ver}alpha11
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-home_etc.patch
@@ -21,10 +21,10 @@ BuildRequires:	gtk+-devel
 Requires(pre):	/usr/bin/getgid
 Requires(pre):	/usr/sbin/groupadd
 Requires(postun):	/usr/sbin/groupdel
-Requires:	cdrtools >= 1.11
-Requires:	cdrtools-cdda2wav >= 1.11
-Requires:	cdrtools-mkisofs >= 1.11
-Requires:	cdrtools-readcd >= 1.11
+Requires:	cdrtools >= 1.11a40
+Requires:	cdrtools-cdda2wav >= 1.11a40
+Requires:	cdrtools-mkisofs >= 1.11a40
+Requires:	cdrtools-readcd >= 1.11a40
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -62,21 +62,24 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+
 %build
-%{__make} \
-    PREFIX="%{_prefix}" \
-    CC="%{__cc} %{rpmcflags}" \
-    CDRTOOLS_PREFIX=/usr
+%configure \
+    --with-cdrtools-prefix=/usr
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pixmapsdir} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
 
-%{__make} PREFIX="%{_prefix}" DESTDIR=$RPM_BUILD_ROOT install
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -92,9 +95,9 @@ else
 	/usr/sbin/groupadd -g 27 -r -f cdwrite
 fi
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO README.atapi
+%doc ChangeLog README doc/*
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}-%{ver}
 %dir %{_libdir}/%{name}-%{ver}/bin/
@@ -103,9 +106,6 @@ fi
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/wavplay
 %attr(2755,root,cdwrite) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
-%dir %{_libdir}/%{name}-%{ver}/lang
-%attr(755,root,root) %{_libdir}/%{name}-%{ver}/lang/*.sh
-%{_libdir}/%{name}-%{ver}/lang/*.def
 %{_libdir}/%{name}-%{ver}/icons
 %{_libdir}/%{name}-%{ver}/sound
 %{_applnkdir}/Utilities/CD-RW/%{name}.desktop
