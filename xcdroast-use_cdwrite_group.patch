@@ -1,0 +1,22 @@
+--- xcdroast-0.98alpha10/xcdroast.h.orig	Sun Nov 17 21:38:43 2002
++++ xcdroast-0.98alpha10/xcdroast.h	Sun Nov 17 21:39:19 2002
+@@ -75,7 +75,7 @@
+ #define READCD_VERSION "1.11a19"
+ 
+ /* group to use for non-root-mode */
+-#define NONROOTMODEGROUP "xcdwrite"
++#define NONROOTMODEGROUP "cdwrite"
+ 
+ /* demo sound */
+ #define DSPTESTSOUND "sound/test.wav"
+--- xcdroast-0.98alpha10/Makefile.orig	Sun Nov 17 21:40:31 2002
++++ xcdroast-0.98alpha10/Makefile	Sun Nov 17 21:41:19 2002
+@@ -94,7 +94,7 @@
+ 
+ perms:
+ #	note, the group xcdwrite can be set in xcdroast.h
+-	chown root:xcdwrite $(DESTDIR)/$(PRE_LIBDIR)/bin/xcdrwrap
++	chown root:cdwrite $(DESTDIR)/$(PRE_LIBDIR)/bin/xcdrwrap
+ 	chmod 2755 $(DESTDIR)/$(PRE_LIBDIR)/bin/xcdrwrap
+ 
+ deinstall:
