@@ -25,7 +25,7 @@ diff -Nur xcdroast-0.98alpha10.orig/init.c xcdroast-0.98alpha10.chng/init.c
 +		g_snprintf(configdir, MAXLINE, "~/%s/%s", 
 +			getenv("CONFIG_DIR"), CONFIGDIR);	
 +	else 
-+		g_snprintf(tmp, MAXLINE, "~/.%s", CONFIGDIR);
++		g_snprintf(configdir, MAXLINE, "~/.%s", CONFIGDIR);
 +
  	strncpy(rootconfig, ROOTCONFIG, MAXLINE);
  
