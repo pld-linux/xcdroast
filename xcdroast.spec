@@ -67,12 +67,12 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install extra/%{name}.desktop $RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+
+install extra/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -92,5 +92,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/xcdrwrap
 %{_libdir}/%{name}-%{ver}/icons
 %{_libdir}/%{name}-%{ver}/sound
-%{_applnkdir}/Utilities/CD-RW/%{name}.desktop
+%{_desktopdir}%{name}.desktop
 %{_mandir}/man1/*
