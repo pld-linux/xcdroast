@@ -9,6 +9,6 @@
  Comment=CD creation tool
 +Comment[pl]=Narzędzie do tworzenia płyt CD
  Icon=/usr/lib/xcdroast-0.98/icons/xcdricon.png
-+Categories=Utility;DiscBurning;
++Categories=GTK;Utility;DiscBurning;
 +Encoding=UTF-8
 +# vi: encoding=utf-8
