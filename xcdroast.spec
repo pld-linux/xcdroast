@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha15
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -14,9 +14,10 @@ Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel
-BuildRequires:	pkgconfig
 BuildRequires:	pcre-devel
+BuildRequires:	pkgconfig
 Requires:	cdrtools >= 2.01a18
 Requires:	cdrtools-cdda2wav >= 2.01a18
 Requires:	cdrtools-mkisofs >= 2.01a18
@@ -56,6 +57,15 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %patch0 -p1
 %patch1 -p1
 
+sed -e 's/zh_TW\.Big5/zh_TW/;s/zh_CN\.GB2312/zh_CN/;s/\<no\>/nb/;s/el_GR/el/;s/sq_AL/sq/' \
+	po/LINGUAS > l.tmp
+mv -f l.tmp po/LINGUAS
+mv -f po/{zh_TW.Big5,zh_TW}.po
+mv -f po/{zh_CN.GB2312,zh_CN}.po
+mv -f po/{no,nb}.po
+mv -f po/{el_GR,el}.po
+mv -f po/{sq_AL,sq}.po
+
 %build
 %configure \
 	--enable-gtk2
@@ -82,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog README doc/*
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}-%{ver}
-%dir %{_libdir}/%{name}-%{ver}/bin/
+%dir %{_libdir}/%{name}-%{ver}/bin
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/cddbtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
