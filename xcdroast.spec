@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha10
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -77,6 +77,7 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%pre
 if [ -n "`getgid cdwrite`" ]; then
         if [ "`getgid cdwrite`" != "27" ]; then
                 echo "Error: group cdwrite doesn't have gid=27. Correct this before installing xcdroast." 1>&2
@@ -87,7 +88,11 @@ else
         /usr/sbin/groupadd -g 27 -r -f cdwrite
 fi
 
-
+%postun
+if [ "$1" = "0" ]; then
+  %{_sbindir}/groupdel cdwrite 2> /dev/null
+fi
+		
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO README.atapi
@@ -106,3 +111,4 @@ fi
 %{_libdir}/%{name}-%{ver}/sound
 %{_applnkdir}/Utilities/CD-RW/%{name}.desktop
 %{_pixmapsdir}/*
+%{_mandir}/man1/*
