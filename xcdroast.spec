@@ -14,6 +14,7 @@ Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	pcre-devel
@@ -67,6 +68,7 @@ mv -f po/{el_GR,el}.po
 mv -f po/{sq_AL,sq}.po
 
 %build
+cp -f /usr/share/automake/config.* .
 %configure \
 	--enable-gtk2
 
