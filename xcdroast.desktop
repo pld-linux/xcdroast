@@ -2,7 +2,7 @@
 Name=X-CD-Roast
 Comment=A X Window System based tool for creating CDs
 Comment[pl]=Narzędzie do tworzenia płyt CD 
-Icon=xcdricon.png
+Icon=xcdroast.png
 Exec=xcdroast
 Type=Application
 Terminal=0
