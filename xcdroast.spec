@@ -2,16 +2,16 @@
 Summary:	An X Window System based tool for creating CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Name:		xcdroast
-Version:	%{ver}alpha9
-Release:	1
+Version:	%{ver}alpha10
+Release:	0
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://www.fh-muenchen.de/home/ze/rz/services/projects/xcdroast/src/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://www.xcdroast.org/
-Requires:	cdrtools >= 1.10
-Requires:	cdrtools-readcd >= 1.10
-Requires:	cdrtools-mkisofs >= 1.10
-Requires:	cdrtools-cdda2wav >= 1.10
+Requires:	cdrtools >= 1.11
+Requires:	cdrtools-readcd >= 1.11
+Requires:	cdrtools-mkisofs >= 1.11
+Requires:	cdrtools-cdda2wav >= 1.11
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	XFree86-devel
