@@ -18,10 +18,10 @@ BuildRequires:	XFree86-devel
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	glib-devel
 BuildRequires:	gtk+-devel
-Requires:	cdrtools >= 1.11a40
-Requires:	cdrtools-cdda2wav >= 1.11a40
-Requires:	cdrtools-mkisofs >= 1.11a40
-Requires:	cdrtools-readcd >= 1.11a40
+Requires:	cdrtools >= 2.01a18
+Requires:	cdrtools-cdda2wav >= 2.01a18
+Requires:	cdrtools-mkisofs >= 2.01a18
+Requires:	cdrtools-readcd >= 2.01a18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
