@@ -1,12 +1,14 @@
 %define	ver	0.98
-Summary:	An X Window System based tool for creating CDs.
+Summary:	An X Window System based tool for creating CDs
+Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Name:		xcdroast
 Version:	%{ver}alpha8
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		X11/Applications/Multimedia
+Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
-Source:		http://www.fh-muenchen.de/home/ze/rz/services/projects/xcdroast/src/%{name}-%{version}.tar.gz
+Source0:	http://www.fh-muenchen.de/home/ze/rz/services/projects/xcdroast/src/%{name}-%{version}.tar.gz
 URL:		http://www.xcdroast.org/
 Requires:	cdrtools >= 1.9
 Requires:	cdrtools-readcd >= 1.9
@@ -30,14 +32,14 @@ copying of CDs without hard disk buffering, and a logfile option.
 %description -l pl
 X-CD-Roast dostarcza graficznego interfejsu do komend takich jak
 cdrecord oraz mkisofs. X-CD-Roast zawiera samo-wyja¶niaj±cy siê
-interfejs u¿ytkownika pod X11, automatyczn± konfiguracjê urz±dzeñ
-SCSI oraz IDE itp.
+interfejs u¿ytkownika pod X11, automatyczn± konfiguracjê urz±dzeñ SCSI
+oraz IDE itp.
 
 %prep
 %setup -q
 
 %build
-%{__make} CC="gcc $RPM_OPT_FLAGS"
+%{__make} CC="%{__cc} %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -46,6 +48,7 @@ ln -sf xcdrgtk $RPM_BUILD_ROOT/%{_bindir}/xcdroast
 
 gzip -9nf CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO \
 	  README.atapi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
