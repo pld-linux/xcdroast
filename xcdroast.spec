@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}-%{ver}
-dir %{_libdir}/%{name}-%{ver}/bin/
+%dir %{_libdir}/%{name}-%{ver}/bin/
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/cddbtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/rmtool
 %attr(755,root,root) %{_libdir}/%{name}-%{ver}/bin/vrfytool
