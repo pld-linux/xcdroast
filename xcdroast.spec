@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Summary(pt_BR):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha13
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -25,9 +25,6 @@ Requires:	cdrtools-cdda2wav >= 1.11a40
 Requires:	cdrtools-mkisofs >= 1.11a40
 Requires:	cdrtools-readcd >= 1.11a40
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 X-CD-Roast provides a GUI interface for commands like cdrecord and
@@ -64,8 +61,7 @@ gravação no disco rígido e opção para gerar arquivo de log.
 %patch2 -p1
 
 %build
-%configure \
-    --with-cdrtools-prefix=/usr
+%configure
 
 %{__make}
 
