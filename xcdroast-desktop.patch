@@ -1,6 +1,5 @@
-diff -urN xcdroast-0.98alpha11.orig/extra/xcdroast.desktop xcdroast-0.98alpha11/extra/xcdroast.desktop
---- xcdroast-0.98alpha11.orig/extra/xcdroast.desktop	Wed Nov 27 13:58:06 2002
-+++ xcdroast-0.98alpha11/extra/xcdroast.desktop	Wed Nov 27 14:16:56 2002
+--- xcdroast-0.98alpha13/extra/xcdroast.desktop~	Mon Nov 25 17:18:31 2002
++++ xcdroast-0.98alpha13/extra/xcdroast.desktop	Fri Feb  7 12:53:06 2003
 @@ -1,6 +1,8 @@
  [Desktop Entry]
  Name=X-CD-Roast
@@ -8,7 +7,6 @@ diff -urN xcdroast-0.98alpha11.orig/extra/xcdroast.desktop xcdroast-0.98alpha11/
 -Exec=/usr/bin/xcdroast
 +Exec=xcdroast
  Comment=CD creation tool
--Icon=/usr/lib/xcdroast-0.98/icons/xcdricon.png
 +Comment[pl]=Narzędzie do tworzenia płyt CD
-+Icon=/usr/X11R6/lib/xcdroast-0.98/icons/xcdricon.png
+ Icon=/usr/lib/xcdroast-0.98/icons/xcdricon.png
 +# vi: encoding=utf-8
