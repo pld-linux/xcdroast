@@ -3,10 +3,11 @@ Summary:	An X Window System based tool for creating CDs
 Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
 Name:		xcdroast
 Version:	%{ver}alpha10
-Release:	0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source1:	xcdroast.desktop
 URL:		http://www.xcdroast.org/
 Requires:	cdrtools >= 1.11
 Requires:	cdrtools-readcd >= 1.11
@@ -41,8 +42,13 @@ oraz IDE itp.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_pixmapsdir} \
+	$RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
 
 %{__make} PREFIX="%{_prefix}" DESTDIR=$RPM_BUILD_ROOT install
+
+install xpms/xcdricon.xpm $RPM_BUILD_ROOT%{_pixmapsdir}                                       
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities/CD-RW
 
 gzip -9nf CHANGELOG DOCUMENTATION FAQ README TRANSLATION.HOWTO \
 	  README.atapi
@@ -66,3 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}-%{ver}/lang/*.def
 %{_libdir}/%{name}-%{ver}/icons
 %{_libdir}/%{name}-%{ver}/sound
+%{_applnkdir}/Utilities/CD-RW/%{name}.desktop
+%{_pixmapsdir}/* 
