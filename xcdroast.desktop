@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=X-CD-Roast
 Comment=A X Window System based tool for creating CDs
-Comment[pl]=Narzêdzie do tworzenia py³t CD 
+Comment[pl]=Narzędzie do tworzenia płyt CD 
 Icon=xcdricon.png
 Exec=xcdroast
 Type=Application
