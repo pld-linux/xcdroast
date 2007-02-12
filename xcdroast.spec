@@ -1,8 +1,8 @@
 %define		ver	0.98
 Summary:	An X Window System based tool for creating CDs
-Summary(es):	Herramienta gráfica para crear CDs
-Summary(pl):	Narzêdzie pod X do nagrywania p³yt CD
-Summary(pt_BR):	Ferramenta gráfica para criação de CDs
+Summary(es.UTF-8):   Herramienta grÃ¡fica para crear CDs
+Summary(pl.UTF-8):   NarzÄ™dzie pod X do nagrywania pÅ‚yt CD
+Summary(pt_BR.UTF-8):   Ferramenta grÃ¡fica para criaÃ§Ã£o de CDs
 Name:		xcdroast
 Version:	%{ver}alpha15
 Release:	6
@@ -34,26 +34,26 @@ automatic SCSI and IDE hardware setup, support for mastering of new
 ISO9660 data CDs, support for production of new audio CDs, fast
 copying of CDs without hard disk buffering, and a logfile option.
 
-%description -l es
-X-CD-Roast suministra una interfaz gráfica para las órdenes mkisofs y
-cdrecord. Su interfaz es autoexplicativa. Proporciona detección
-automática del hardware SCSI y IDE, soporte para crear nuevos CDs de
-datos ISO9660, soporte para producción de CDs de sonido, copia rápida
-de CDs sin grabación en el discoduro y opción para generar archivo de
+%description -l es.UTF-8
+X-CD-Roast suministra una interfaz grÃ¡fica para las Ã³rdenes mkisofs y
+cdrecord. Su interfaz es autoexplicativa. Proporciona detecciÃ³n
+automÃ¡tica del hardware SCSI y IDE, soporte para crear nuevos CDs de
+datos ISO9660, soporte para producciÃ³n de CDs de sonido, copia rÃ¡pida
+de CDs sin grabaciÃ³n en el discoduro y opciÃ³n para generar archivo de
 log.
 
-%description -l pl
+%description -l pl.UTF-8
 X-CD-Roast dostarcza graficznego interfejsu do komend takich jak
-cdrecord oraz mkisofs. X-CD-Roast zawiera samo-wyja¶niaj±cy siê
-interfejs u¿ytkownika pod X11, automatyczn± konfiguracjê urz±dzeñ SCSI
+cdrecord oraz mkisofs. X-CD-Roast zawiera samo-wyjaÅ›niajÄ…cy siÄ™
+interfejs uÅ¼ytkownika pod X11, automatycznÄ… konfiguracjÄ™ urzÄ…dzeÅ„ SCSI
 oraz IDE itp.
 
-%description -l pt_BR
-O X-CD-Roast fornece uma interface gráfica para os comandos mkisofs e
-cdrecord. Sua interface é auto-explicativa. Provê detecção automática
+%description -l pt_BR.UTF-8
+O X-CD-Roast fornece uma interface grÃ¡fica para os comandos mkisofs e
+cdrecord. Sua interface Ã© auto-explicativa. ProvÃª detecÃ§Ã£o automÃ¡tica
 do hardware SCSI e IDE, suporte para criar novos CDs de dados ISO9660,
-suporte para produção de CDs de áudio, cópia rápida de CDs sem
-gravação no disco rígido e opção para gerar arquivo de log.
+suporte para produÃ§Ã£o de CDs de Ã¡udio, cÃ³pia rÃ¡pida de CDs sem
+gravaÃ§Ã£o no disco rÃ­gido e opÃ§Ã£o para gerar arquivo de log.
 
 %prep
 %setup -q
