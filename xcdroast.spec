@@ -1,8 +1,8 @@
 %define		ver	0.98
 Summary:	An X Window System based tool for creating CDs
-Summary(es.UTF-8):   Herramienta gráfica para crear CDs
-Summary(pl.UTF-8):   Narzędzie pod X do nagrywania płyt CD
-Summary(pt_BR.UTF-8):   Ferramenta gráfica para criação de CDs
+Summary(es.UTF-8):	Herramienta gráfica para crear CDs
+Summary(pl.UTF-8):	Narzędzie pod X do nagrywania płyt CD
+Summary(pt_BR.UTF-8):	Ferramenta gráfica para criação de CDs
 Name:		xcdroast
 Version:	%{ver}alpha15
 Release:	6
