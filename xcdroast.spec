@@ -15,7 +15,7 @@ Patch1:		%{name}-desktop.patch
 URL:		http://www.xcdroast.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
